@@ -15,4 +15,4 @@ export function Checkbox(props: CheckboxProps) {
   )
 }
 
-Checkbox.displayname = 'Checkbox'
+Checkbox.displayName = 'Checkbox'
