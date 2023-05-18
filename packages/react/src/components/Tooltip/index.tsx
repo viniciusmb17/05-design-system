@@ -9,7 +9,9 @@ export function Tooltip({ children, ...props }: TooltipProps) {
   return (
     <TooltipContainer {...props}>
       <TooltipContent>
-        <Text>{children}</Text>
+        <Text size={'sm'} lineHeight={'short'}>
+          {children}
+        </Text>
       </TooltipContent>
       <TooltipArrow>
         <CaretDown size={16} weight="fill" />
