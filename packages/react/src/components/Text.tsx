@@ -3,7 +3,6 @@ import { styled } from '../styles'
 
 export const Text = styled('p', {
   fontFamily: '$default',
-  lineHeight: '$base',
   margin: 0,
   color: '$gray100',
 
@@ -23,10 +22,17 @@ export const Text = styled('p', {
       '8xl': { fontSize: '$8xl' },
       '9xl': { fontSize: '$9xl' },
     },
+    lineHeight: {
+      shorter: { lineHeight: '125%' },
+      short: { lineHeight: '140%' },
+      base: { lineHeight: '160%' },
+      tall: { lineHeight: '180%' },
+    },
   },
 
   defaultVariants: {
     size: 'md',
+    lineHeight: '$base',
   },
 })
 
