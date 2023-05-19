@@ -1,5 +1,11 @@
 # @ignite-ui-vmb/react
 
+## 2.0.2
+
+### Patch Changes
+
+- Add Tooltip component
+
 ## 2.0.1
 
 ### Patch Changes
