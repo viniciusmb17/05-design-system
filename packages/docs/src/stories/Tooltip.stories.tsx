@@ -8,6 +8,7 @@ export default {
   args: {
     children: <Text>Hover para abrir tooltip</Text>,
     message: '21 de Outubro - Disponível',
+    sideOffset: 5,
   },
   decorators: [
     (Story) => {

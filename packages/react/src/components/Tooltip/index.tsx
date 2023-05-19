@@ -8,17 +8,22 @@ import {
 } from '@radix-ui/react-tooltip'
 import { Text } from '../Text'
 
-export interface TooltipProps extends ComponentProps<typeof TooltipRoot> {
+export interface TooltipProps extends ComponentProps<typeof TooltipContent> {
   message: string
 }
 
-export function Tooltip({ children, message, ...props }: TooltipProps) {
+export function Tooltip({
+  children,
+  message,
+  sideOffset = 5,
+  ...props
+}: TooltipProps) {
   return (
     <TooltipProvider>
-      <TooltipRoot {...props}>
+      <TooltipRoot>
         <TooltipTrigger asChild>{children}</TooltipTrigger>
         <TooltipPortal>
-          <TooltipContent sideOffset={5}>
+          <TooltipContent {...props} sideOffset={sideOffset}>
             <Text fontFamily={'tooltip'} size={'sm'}>
               {message}
             </Text>
