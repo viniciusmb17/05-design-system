@@ -2,7 +2,6 @@ import { ComponentProps, ElementType } from 'react'
 import { styled } from '../styles'
 
 export const Text = styled('p', {
-  fontFamily: '$default',
   margin: 0,
   color: '$gray100',
 
@@ -28,11 +27,17 @@ export const Text = styled('p', {
       base: { lineHeight: '160%' },
       tall: { lineHeight: '180%' },
     },
+    fontFamily: {
+      default: { fontFamily: '$default' },
+      code: { fontFamily: '$code' },
+      tooltip: { fontFamily: '$tooltip' },
+    },
   },
 
   defaultVariants: {
     size: 'md',
     lineHeight: '$base',
+    fontFamily: '$default',
   },
 })
 

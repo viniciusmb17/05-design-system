@@ -1,22 +1,32 @@
 import { ComponentProps } from 'react'
+import { TooltipArrow, TooltipContent } from './styles'
+import {
+  Provider as TooltipProvider,
+  Root as TooltipRoot,
+  Trigger as TooltipTrigger,
+  Portal as TooltipPortal,
+} from '@radix-ui/react-tooltip'
 import { Text } from '../Text'
-import { TooltipArrow, TooltipContainer, TooltipContent } from './styles'
-import { CaretDown } from 'phosphor-react'
 
-export interface TooltipProps extends ComponentProps<typeof TooltipContent> {}
+export interface TooltipProps extends ComponentProps<typeof TooltipRoot> {
+  message: string
+}
 
-export function Tooltip({ children, ...props }: TooltipProps) {
+export function Tooltip({ children, message, ...props }: TooltipProps) {
   return (
-    <TooltipContainer {...props}>
-      <TooltipContent>
-        <Text size={'sm'} lineHeight={'short'}>
-          {children}
-        </Text>
-      </TooltipContent>
-      <TooltipArrow>
-        <CaretDown size={16} weight="fill" />
-      </TooltipArrow>
-    </TooltipContainer>
+    <TooltipProvider>
+      <TooltipRoot {...props}>
+        <TooltipTrigger asChild>{children}</TooltipTrigger>
+        <TooltipPortal>
+          <TooltipContent sideOffset={5}>
+            <Text fontFamily={'tooltip'} size={'sm'}>
+              {message}
+            </Text>
+            <TooltipArrow />
+          </TooltipContent>
+        </TooltipPortal>
+      </TooltipRoot>
+    </TooltipProvider>
   )
 }
 

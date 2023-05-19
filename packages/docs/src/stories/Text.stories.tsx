@@ -7,10 +7,17 @@ export default {
   tags: ['autodocs'],
   args: {
     size: 'md',
+    fontFamily: 'default',
     children:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto a consectetur unde eveniet eius molestiae deleniti inventore beatae. Eum laborum voluptatum consectetur. Repellendus minima autem praesentium impedit possimus? Earum, natus.',
   },
   argTypes: {
+    fontFamily: {
+      options: ['default', 'code', 'tooltip'],
+      control: {
+        type: 'inline-radio',
+      },
+    },
     size: {
       options: [
         'xxs',
