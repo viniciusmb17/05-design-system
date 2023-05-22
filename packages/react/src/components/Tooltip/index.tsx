@@ -1,11 +1,12 @@
 import { ComponentProps } from 'react'
-import { TooltipArrow, TooltipContent } from './styles'
 import {
-  Provider as TooltipProvider,
-  Root as TooltipRoot,
-  Trigger as TooltipTrigger,
-  Portal as TooltipPortal,
-} from '@radix-ui/react-tooltip'
+  TooltipProvider,
+  TooltipRoot,
+  TooltipTrigger,
+  TooltipPortal,
+  TooltipArrow,
+  TooltipContent,
+} from './styles'
 import { Text } from '../Text'
 
 export interface TooltipProps extends ComponentProps<typeof TooltipContent> {

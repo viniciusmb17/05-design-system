@@ -20,6 +20,14 @@ const slideLeftAndFade = keyframes({
   '100%': { opacity: 1, transform: 'translateX(0)' },
 })
 
+export const TooltipProvider = styled(Tooltip.Provider, {})
+
+export const TooltipRoot = styled(Tooltip.Root, {})
+
+export const TooltipTrigger = styled(Tooltip.Trigger, {})
+
+export const TooltipPortal = styled(Tooltip.Portal, {})
+
 export const TooltipContent = styled(Tooltip.Content, {
   display: 'flex',
   flexDirection: 'column',

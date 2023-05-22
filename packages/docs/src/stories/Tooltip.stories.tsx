@@ -2,7 +2,7 @@ import type { StoryObj, Meta } from '@storybook/react'
 import { Box, Text, Tooltip, TooltipProps } from '@ignite-ui-vmb/react'
 
 export default {
-  title: 'Data display/Tooltip',
+  title: 'Form/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
   args: {
