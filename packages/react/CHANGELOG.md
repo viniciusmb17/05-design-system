@@ -1,5 +1,11 @@
 # @ignite-ui-vmb/react
 
+## 2.0.3
+
+### Patch Changes
+
+- add Toast Component
+
 ## 2.0.2
 
 ### Patch Changes
