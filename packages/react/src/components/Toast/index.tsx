@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode, useRef, useState } from 'react'
+import { ComponentProps, ReactNode } from 'react'
 import {
   ToastProvider,
   ToastRoot,
@@ -11,46 +11,33 @@ import {
 import { Heading } from '../Heading'
 import { Text } from '../Text'
 import { X } from 'phosphor-react'
-import { Button } from '../Button'
 
-export interface ToastProps extends ComponentProps<typeof ToastProvider> {
-  action?: ReactNode
+export interface ToastProps extends ComponentProps<typeof ToastRoot> {
+  action?: ReactNode | string
   title?: string
+  description: string
+  eventDate: Date
 }
 
-export function Toast({ action, title = 'Agendamento realizado' }: ToastProps) {
-  const [open, setOpen] = useState(false)
-  const eventDateRef = useRef(new Date())
-
-  function handleToggle(e: any) {
-    e.preventDefault()
-    setOpen((prevState: boolean) => !prevState)
-  }
-  function prettyDate(date: Date): string {
-    return new Intl.DateTimeFormat('pt-BR', {
-      dateStyle: 'full',
-      timeStyle: 'short',
-    })
-      .format(date)
-      .replace(/(^|\W)([a-zÀ-ÖØ-öø-ÿ])/g, (_, p1, p2) => {
-        if ('àd'.includes(p2)) {
-          return p1 + p2
-        }
-        return p1 + p2.toUpperCase()
-      })
-  }
+export function Toast({
+  title,
+  action,
+  description,
+  eventDate,
+  open,
+  onOpenChange,
+}: ToastProps) {
   return (
     <ToastProvider swipeDirection="right">
-      <Button onClick={handleToggle}>Clique aqui</Button>
-      <ToastRoot open={open} onOpenChange={setOpen} defaultOpen={false}>
+      <ToastRoot open={open} onOpenChange={onOpenChange}>
         {title && (
           <ToastTitle>
             <Heading>{title}</Heading>
           </ToastTitle>
         )}
         <ToastDescription asChild>
-          <time dateTime={eventDateRef.current.toISOString()}>
-            <Text size={'sm'}>{prettyDate(eventDateRef.current)}</Text>
+          <time dateTime={eventDate.toISOString()}>
+            <Text size={'sm'}>{description}</Text>
           </time>
         </ToastDescription>
         <ToastClose asChild>
